@@ -15,6 +15,7 @@ class NavbarViewMixin(ContextMixin):
         navbar = site_navbars.get_navbar(name=self.navbar_name)
         navbar.render(selected_item=self.navbar_selected_item)
 
+        default_navbar = None
         if (app_config.default_navbar_name
                 and self.navbar_name != app_config.default_navbar_name):
             default_navbar = site_navbars.get_navbar(
