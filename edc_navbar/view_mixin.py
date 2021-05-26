@@ -8,6 +8,7 @@ class NavbarViewMixin(ContextMixin):
 
     navbar_selected_item = None
     navbar_name = None
+    default_navbar = None
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
