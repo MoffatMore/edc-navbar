@@ -1,0 +1,16 @@
+{% load static %}
+
+<li class="nav-item px-2 d-flex align-items-center">
+    <a class="nav-link text-body p-0" title="{{ title }}" name="{{ name }}" id="{{ name }}" alt="{{ alt }}" href="{{ reversed_url }}">
+        {% if glyphicon %}
+            <i class="glyphicon {{ glyphicon }} {% if active %} active {% endif %} fixed-plugin-button-nav cursor-pointer"></i>
+        {% endif %}
+        {% if fa_icon %}
+            <i class="{{ fa_icon }} fa-fw {% if active %} text-white {% endif %} fixed-plugin-button-nav cursor-pointer"></i>&nbsp
+        {% endif %}
+        {% if icon %}
+            <img src='{% static icon %}' height="{{ icon_height }}" width="{{ icon_width }}"></img>
+        {% endif %}
+        <span> {{ label|default:''|title }}</span>
+    </a>
+</li>

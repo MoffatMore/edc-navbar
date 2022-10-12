@@ -27,6 +27,7 @@ class NavbarViewMixin(ContextMixin):
         context.update(
             navbar=navbar,
             default_navbar=default_navbar,
-            default_navbar_name=app_config.default_navbar_name)
+            default_navbar_name=app_config.default_navbar_name,
+            navbar_selected=self.navbar_selected_item)
 
         return context

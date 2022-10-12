@@ -19,7 +19,9 @@ class NavbarItem:
                  label=None, url_name=None, html_id=None,
                  glyphicon=None, fa_icon=None, icon=None,
                  icon_width=None, icon_height=None, no_url_namespace=None,
-                 active=None):
+                 active=None, template_name=None):
+        if template_name:
+            self.template_name = template_name
         self.name = name
         if no_url_namespace:
             self.url_name = url_name.split(':')[1]
@@ -30,7 +32,7 @@ class NavbarItem:
         except AttributeError:
             self.label = None
 
-        self.title = title or self.label or self.name.title()  # the anchor title
+        self.title = title or self.label or self.name.title()
 
         self.active = active
         self.html_id = html_id or self.name

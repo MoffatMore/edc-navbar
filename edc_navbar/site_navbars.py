@@ -83,7 +83,7 @@ class NavbarCollection:
                 except NavbarError as e:
                     writer(f'   - loading {app}.navbars ... ')
                     writer(style.ERROR(f'ERROR! {e}\n'))
-                except ImportError as e:
+                except ImportError:
                     site_navbars.registry = before_import_registry
                     if module_has_submodule(mod, module_name):
                         raise
@@ -92,34 +92,3 @@ class NavbarCollection:
 
 
 site_navbars = NavbarCollection()
-
-# class Navbar:
-#
-#     def __init__(self, selected_item=None, navbar_name=None):
-#         self._navbars = {}
-#         self.selected_item = selected_item
-#         self.navbar_name = navbar_name
-#         if self.selected_item:
-#             if self.selected_item not in [navbar_item.name for navbar_item in self.navbar]:
-#                 navbar_item_names = [item.name for item in self.navbar]
-#                 raise NavbarError(
-#                     f'Navbar item name does not exist. Got \'{self.navbar_item_selected}\'. '
-#                     f'Expected one of {navbar_item_names}. See navbar \'{self.navbar_name}\'.')
-#
-#     @property
-#     def context(self, name=None, selected_item=None):
-#         return dict(
-#             navbar_item_selected=self.selected_item,
-#             navbar=self.navbar,
-#             navbar_name=self.navbar_name)
-#
-#     @property
-#     def navbar(self):
-#         return navbars.get(self.navbar_name)
-#
-#     def add(self, name=None, navbar_items=None):
-#         self.navbars.update({name: navbar_items})
-#
-#
-# navbars = Navbars.update(
-#     {'edc_base': Navbar(selected_item='home', navbar_name='default')})
