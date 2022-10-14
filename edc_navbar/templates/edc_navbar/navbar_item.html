@@ -1,6 +1,6 @@
 {% load static %}
 <li class="nav-item  px-3 d-flex align-items-center">
-    <a class="btn {% if active %} btn-secondary {% else %} btn-outline-secondary {% endif %} btn-sm mb-0 me-3" title="{{ title }}" 
+    <a class="btn {% if active %} btn-primary {% else %} btn-outline-secondary {% endif %} btn-sm mb-0 me-3" title="{{ title }}"
         name="{{ name }}" id="{{ name }}" alt="{{ alt }}" href="{{ reversed_url }}">
         {% if glyphicon %}<i class="glyphicon {{ glyphicon }}"></i>{% endif %}
         {% if fa_icon %}<i class="{{ fa_icon }} fa-fw " style="font-size: 15px;"></i>&nbsp{% endif %}
